@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>Welcome back, {{ username }}!</h2>
+<h3>Upload Image</h3>
+<div class = "upload">
+    <form action="/uploaded" method="post" enctype="multipart/form-data">
+        <input type="file" name="imageUpload" id="imageUpload" accept=".png, .jpg, .jpeg" >
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+{% endblock %}

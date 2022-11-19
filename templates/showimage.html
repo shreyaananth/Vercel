@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<script>
+    function predict() {
+        document.getElementById("pred").value = '{{ prediction }}';
+    }
+</script>
+<style>
+    img {
+        margin-top: 2%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 400px;
+        width: auto;
+    }
+
+</style>
+
+<h2>Uploaded Image</h2>
+<br>
+<img src='{{uploaded_image}}' alt="Uploaded image" />
+<div align="center">
+<input type="button" value="Predict" onclick="predict()" id="pred">
+</div>
+{% endblock %}
