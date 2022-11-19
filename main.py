@@ -211,3 +211,6 @@ def history():
         images.append(encoded_img_data.decode('utf-8'))
         preds.append(pred)
     return render_template('history.html', photos = images, preds = preds)
+
+if __name__ == 'main':
+    app.run()
