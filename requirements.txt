@@ -1,8 +1,3 @@
-thinc
-spacy
-preshed
-pythonnet
-pywebview
 regex
 requires.io
 mysql
@@ -11,7 +6,6 @@ pillow
 flask
 flask_mysqldb
 flask_mail
-werkzeug
 ibm-watson-machine-learning
 keras
 numpy
