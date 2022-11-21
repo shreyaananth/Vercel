@@ -3,7 +3,6 @@ spacy
 preshed
 pythonnet
 pywebview
-os-sys
 regex
 requires.io
 mysql
