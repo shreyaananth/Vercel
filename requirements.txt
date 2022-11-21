@@ -1,3 +1,5 @@
+thinc
+spacy
 preshed
 pythonnet
 pywebview
