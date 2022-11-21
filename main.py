@@ -95,7 +95,9 @@ def uploaded():
             imagereceived.save(os.path.join(app.config['UPLOAD_FOLDER'], img_filename))
             print(imagereceived)
             return redirect(url_for('showimage', filename=img_filename))
-        return render_template('home.html', uploaded_image=os.path.join(app.config['UPLOAD_FOLDER'], img_filename))
+        #os.path.join(app.config['UPLOAD_FOLDER']
+        temp = app.config['UPLOAD_FOLDER'] + '/' + img_filename;
+        return render_template('home.html', uploaded_image=temp)
     return redirect(url_for('login'))
 
 @app.route('/showimage')
@@ -119,8 +121,9 @@ def showimage():
         cursor.execute('INSERT INTO imagetable (photo,username,pred) VALUES (%s,%s,%s)',
                        (fil, session['username'], classes[pred[0]]))
         mysql.connection.commit()
+        temp = app.config['UPLOAD_FOLDER'] + '/' + img_filename;
         return render_template(
-            'showimage.html', uploaded_image=os.path.join(app.config['UPLOAD_FOLDER'], img_filename), prediction=classes[pred[0]])
+            'showimage.html', uploaded_image=temp, prediction=classes[pred[0]])
     return redirect(url_for('login'))
 
 @app.route('/register', methods=['GET', 'POST'])
