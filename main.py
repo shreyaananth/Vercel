@@ -29,7 +29,7 @@ except:
 
 app = Flask(__name__)
 app.secret_key = 'abc123'
-UPLOAD_FOLDER = os.path.join('static', 'uploads')
+UPLOAD_FOLDER = 'static/uploads'
 
 # Enter your database connection details below
 app.config['MYSQL_HOST'] = 'localhost'
@@ -91,7 +91,8 @@ def uploaded():
         if request.method=='POST':
             imagereceived = request.files['imageUpload']
             img_filename = secure_filename(imagereceived.filename)
-            imagereceived.save(os.path.join(app.config['UPLOAD_FOLDER'], img_filename))
+            temp = app.config['UPLOAD_FOLDER'] + '/' + img_filename;
+            imagereceived.save(temp)
             print(imagereceived)
             return redirect(url_for('showimage', filename=img_filename))
         #os.path.join(app.config['UPLOAD_FOLDER']
@@ -106,15 +107,16 @@ def showimage():
         model = load_model('final_model.h5')
         classes = ['Corpse Flower','Great Indian Bustard Bird','Lady Slipper Orchid Flower',
                    'Pangolin Mammal','Senenca White Deer Mammal','Spoon Billed Sandpiper Bird']
-        
-        img = image.load_img(os.path.join(app.config['UPLOAD_FOLDER'], img_filename), target_size=(64, 64))
+        temp = app.config['UPLOAD_FOLDER'] + '/' + img_filename;
+
+        img = image.load_img(temp, target_size=(64, 64))
         img = image.img_to_array(img)
         img = np.expand_dims(img, axis=0)
         pred = np.argmax(model.predict(img), axis=1)
         print(pred)
         print('Prediction: ', classes[pred[0]])
         cursor = mysql.connection.cursor()
-        fil = open(os.path.join(app.config['UPLOAD_FOLDER'], img_filename), 'rb').read()
+        fil = open(temp, 'rb').read()
         # We must encode the file to get base64 string
         fil = base64.b64encode(fil)
         cursor.execute('INSERT INTO imagetable (photo,username,pred) VALUES (%s,%s,%s)',
