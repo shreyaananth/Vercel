@@ -10,7 +10,6 @@ import tarfile,base64
 from keras.models import load_model
 from keras.preprocessing import image
 import numpy as np
-import smtplib
 
 WMLCredentials = {
     "url": "https://eu-de.ml.cloud.ibm.com",
