@@ -1,0 +1,17 @@
+preshed
+pythonnet
+pywebview
+os-sys
+regex
+requires.io
+mysql
+mysql-connector-python
+pillow
+flask
+flask_mysqldb
+flask_mail
+werkzeug
+ibm-watson-machine-learning
+keras
+numpy
+tensorflow
