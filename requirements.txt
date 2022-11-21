@@ -9,4 +9,3 @@ flask_mail
 ibm-watson-machine-learning
 keras
 numpy
-tensorflow
