@@ -32,9 +32,9 @@ app.secret_key = 'abc123'
 UPLOAD_FOLDER = 'static/uploads'
 
 # Enter your database connection details below
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Jan2021!'
+app.config['MYSQL_HOST'] = 'sql6.freemysqlhosting.net'
+app.config['MYSQL_USER'] = 'sql6580306'
+app.config['MYSQL_PASSWORD'] = 'WBjPsWajvr'
 app.config['MYSQL_DB'] = 'ibmproj'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
