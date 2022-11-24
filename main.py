@@ -35,7 +35,7 @@ UPLOAD_FOLDER = 'static/uploads'
 app.config['MYSQL_HOST'] = 'sql6.freemysqlhosting.net'
 app.config['MYSQL_USER'] = 'sql6580306'
 app.config['MYSQL_PASSWORD'] = 'WBjPsWajvr'
-app.config['MYSQL_DB'] = 'ibmproj'
+app.config['MYSQL_DB'] = 'sql6580306'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 mysql = MySQL(app)
